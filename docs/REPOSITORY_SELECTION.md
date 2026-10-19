@@ -1,6 +1,6 @@
-# Repository candidate — local only
+# Repository file selection
 
-Prepared 2026-10-20 for ChompyTrades/CryptoTowerDefende. This is a proposed source distribution, not permission to upload or publish. Figures remain unchanged; their inclusion is conditional on rights review.
+Prepared 2026-10-20 for ChompyTrades/CryptoTowerDefende. The owner subsequently approved uploading this selection and publishing the solo site with the unchanged figures after discussing the open asset-rights questions. No blanket rights clearance is claimed.
 
 `hosting/prepare-repository.mjs` reads the explicit list in `hosting/repository-files.json`. It creates a new timestamped directory below ignored `output/`, with copies and a SHA-256 inventory beside it. It never initializes Git, commits, sets a remote, uploads or changes GitHub. The list is an allowlist, not a recursive copy of the workspace. New files must be explicitly added.
 
@@ -12,4 +12,4 @@ The older Docker/Render/Caddy templates are not selected for this solo-focused r
 
 Only `output/solo/`, built later from the selected sources, belongs to the GitHub Pages site. The source repository also contains co-op and tests. Review pages are retained for developer tests but are not part of the solo site.
 
-Before a future upload: review this inventory, resolve asset permissions, rerun the clean-copy tests, then obtain explicit upload/publication approval. .gitignore is defense in depth, not a replacement for selecting files or checking an existing Git history.
+The initial upload/publication was explicitly approved. Future changes still require an appropriate review of the inventory and tests. .gitignore is defense in depth, not a replacement for selecting files or checking an existing Git history. Source code is on main; the generated solo site is on gh-pages at the branch root.

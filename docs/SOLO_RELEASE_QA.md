@@ -57,7 +57,7 @@ Normal static candidate on port 4181; synthetic checkpoint fixtures on isolated 
 
 These are functional checks, not a new human-played full campaign or a new balance study. Firefox/Safari, physical mobile/touch, 1080p/fullscreen and a live public Pages URL were not tested in this pass. There is no claim that every possible action sequence is bug-free.
 
-## Before any public upload
+## Historical preparation checklist (superseded by release status below)
 
 Technical solo preparation is complete, but these publication decisions remain:
 
@@ -67,3 +67,19 @@ Technical solo preparation is complete, but these publication decisions remain:
 4. Obtain explicit approval before public visibility, upload or Pages deployment; verify the real public URL afterward.
 
 The defeat/menu/continue retry exploit remains intentionally deferred and documented. High scores and unlocks are browser-local, not tamper-proof. Saves are between-wave checkpoints. Armor, camouflage, new content, accounts and public co-op hosting remain out of scope.
+
+## Release authorization — 2026-10-20
+
+The owner approved public upload and GitHub Pages publication with the unchanged figures after reviewing the unresolved asset questions. This approval is not a third-party rights clearance. Own software code is now MIT-licensed with the explicit exclusions in LICENSING.md. The allowlisted source distribution contains 124 files; the separately built static solo site contains 40 files. Private references, saved data and local working material are excluded. All 137 automated tests passed again before upload. Public-site verification is recorded separately after deployment. The owner handles the X announcement; no social post is part of the deployment.
+
+## Public Pages verification — 2026-10-20
+
+URL: https://chompytrades.github.io/CryptoTowerDefende/
+
+- GitHub Pages build and deployment completed successfully.
+- All 40 public files returned HTTP 200 and matched the local solo export SHA-256 hashes exactly.
+- Co-op HTML, server.mjs, data/ and the QA module returned 404 on the static site.
+- Actual browser test: English menu, locked desert and x5/x8, solo start, invalid placement rejected without charging, valid Pengu purchase (650 to 500), first-wave auto-start, pause/resume and level-2 upgrade (500 to 350).
+- Wave 1 completed with 30 lives and 542 credits. Manual wave setting and the saved checkpoint survived reload; Continue restored the game paused with the same 542 credits and the tower.
+- No errors or warnings in the captured browser console. Desktop and narrow browser layouts rendered; this was not physical-device or cross-browser certification.
+- This public smoke test did not replay all 100+ waves. Existing balance limitations and the deferred retry issue still apply.

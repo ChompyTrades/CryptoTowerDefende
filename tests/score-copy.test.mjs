@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {copyScoreImage} from '../src/score-share.js';
+const image={toBlob:done=>done(new Blob(['png'],{type:'image/png'}))};
+test('score clipboard writes an image item and waits for confirmed completion',async()=>{let type;const ok=await copyScoreImage({},'en',{makeImage:()=>image,Item:class{constructor(data){this.data=data;}},clipboard:{async write(items){type=(await items[0].data['image/png']).type;}}});assert.equal(ok,true);assert.equal(type,'image/png');});
+test('denied or missing image clipboard never claims success',async()=>{assert.equal(await copyScoreImage({},'en',{clipboard:null,Item:null}),false);assert.equal(await copyScoreImage({},'en',{makeImage:()=>image,Item:class{},clipboard:{write:async()=>{throw Error('denied');}}}),false);});

@@ -1,0 +1,6 @@
+import fs from 'node:fs';import path from 'node:path';import {gzipSync} from 'node:zlib';
+const seen=new Set();function module(p){p=path.normalize(p);if(seen.has(p))return;seen.add(p);const s=fs.readFileSync(p,'utf8');for(const m of s.matchAll(/(?:from\s*|import\s*)['"]([^'"]+)['"]/g))if(m[1].startsWith('.'))module(path.join(path.dirname(p),m[1]));}
+const measure=files=>[...files].reduce((n,p)=>{const b=fs.readFileSync(p);return n+700+(p.endsWith('.png')||b.length<=512?b.length:gzipSync(b,{level:6}).length);},0);
+module('src/app.js');for(const p of ['index.html','style.css','assets/favicon-64.png',...fs.readdirSync('assets/cursors').map(n=>'assets/cursors/'+n)])seen.add(p);const solo=measure(seen);
+seen.clear();module('src/coop-client.js');for(const p of ['coop.html','style.css','coop.css','assets/favicon-64.png',...fs.readdirSync('assets/emotes').map(n=>'assets/emotes/'+n),...fs.readdirSync('assets/cursors').map(n=>'assets/cursors/'+n)])seen.add(p);const coop=measure(seen);
+const result={soloColdMB:solo/1e6,eightSoloColdMB:solo*8/1e6,coopColdMB:coop/1e6,nineCoopColdMB:coop*9/1e6,note:'Conservative all modules/cursors/emotes once, gzip text + 700B/request. No cache credit or TLS.'};fs.writeFileSync('output/initial-download.json',JSON.stringify(result,null,2));console.log(result);

@@ -1,0 +1,33 @@
+# Local dependencies and generated/temporary files
+node_modules/
+.pnpm-store/
+output/
+server-*.log
+
+# Private cooperative profiles and resumable rooms
+data/
+
+# Credentials and local machine configuration
+.env
+.env.*
+*.env
+!.env.example
+!*.env.example
+*.pem
+*.key
+.npmrc
+.codex/
+.agents/
+.aws/
+
+# Private references, social drafts and working material
+docs/references/
+X/
+CTD_PROGRAMMIERPROMPT.md
+CTD_COOP_PROGRAMMIERPROMPT.md
+*.log
+*.tmp
+*.bak
+*.zip
+# Historical image generators depend on the author's local runtime
+tests/render-*.mjs
